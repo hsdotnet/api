@@ -33,6 +33,12 @@ public class UserController {
         return userService.login(userName, password);
     }
 
+    @ApiOperation(value = "用户退出")
+    @PostMapping("/logout")
+    public Result<String> logout() {
+        return Result.success("OK");
+    }
+
     @ApiOperation(value = "根据用户Id获取用户信息")
     @ApiImplicitParam(name = "userId", value = "用户Id", required = true, dataType = "int")
     @GetMapping("/getUserInfoById")
