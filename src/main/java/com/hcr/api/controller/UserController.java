@@ -1,5 +1,6 @@
 package com.hcr.api.controller;
 
+import com.hcr.api.dto.LoginDTO;
 import com.hcr.api.dto.UserDTO;
 import com.hcr.api.service.UserService;
 import com.hcr.api.util.Result;
@@ -8,10 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,13 +22,10 @@ public class UserController {
     private UserService userService;
 
     @ApiOperation(value = "用户登录")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "string"),
-            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "string")
-    })
+    @ApiImplicitParam(name = "loginDTO", value = "登录参数", required = true)
     @PostMapping("/login")
-    public Result<String> login(String userName, String password) {
-        return userService.login(userName, password);
+    public Result<String> login(@RequestBody LoginDTO loginDTO) {
+        return userService.login(loginDTO.getUserName(), loginDTO.getPassword());
     }
 
     @ApiOperation(value = "用户退出")
