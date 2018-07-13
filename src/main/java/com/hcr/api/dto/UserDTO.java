@@ -13,6 +13,8 @@ public class UserDTO {
     private String email;
     private String address;
     private String remark;
+    private String avator;
+    private boolean isTab;
 
     public int getUserId() {
         return userId;
@@ -94,6 +96,22 @@ public class UserDTO {
         this.remark = remark;
     }
 
+    public String getAvator() {
+        return avator;
+    }
+
+    public void setAvator(String avator) {
+        this.avator = avator;
+    }
+
+    public boolean getIsTab() {
+        return isTab;
+    }
+
+    public void setIsTab(boolean isTab) {
+        this.isTab = isTab;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
@@ -107,6 +125,8 @@ public class UserDTO {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", remark='" + remark + '\'' +
+                ", avator='" + avator + '\'' +
+                ", isTab=" + isTab +
                 '}';
     }
 }

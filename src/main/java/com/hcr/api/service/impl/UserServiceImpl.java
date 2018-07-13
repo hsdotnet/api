@@ -26,6 +26,8 @@ public class UserServiceImpl implements UserService {
         user1.setRealName("管理员");
         user1.setRemark("无");
         user1.setSex(1);
+        user1.setAvator("http://adminlte.la998.com/dist/img/user2-160x160.jpg");
+        user1.setIsTab(true);
         users.add(user1);
 
         UserDTO user2 = new UserDTO();
@@ -39,6 +41,8 @@ public class UserServiceImpl implements UserService {
         user2.setRealName("测试");
         user2.setRemark("测试人员");
         user2.setSex(1);
+        user1.setAvator("http://adminlte.la998.com/dist/img/user2-160x160.jpg");
+        user1.setIsTab(false);
         users.add(user1);
     }
 
