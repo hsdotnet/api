@@ -43,14 +43,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result<UserDTO> getUserInfo(String userName, String password) {
+    public Result<String> login(String userName, String password) {
         for (UserDTO user : users) {
             if (user.getUserName().equals(userName)) {
-                return Result.success(user);
+                return Result.success(user.getUserName());
             }
         }
 
-        return Result.error("未找到对应的用户信息");
+        return Result.error("用户名或者密码错误");
     }
 
     @Override

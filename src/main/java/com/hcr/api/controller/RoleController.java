@@ -23,8 +23,8 @@ public class RoleController {
 
     @ApiOperation(value = "分页获取角色列表")
     @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "页码", required = true, dataType = "int"),
-        @ApiImplicitParam(name = "size", value = "页大小", required = true, dataType = "int")
+            @ApiImplicitParam(name = "page", value = "页码", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "size", value = "页大小", required = true, dataType = "int")
     })
     @GetMapping("/getRoles")
     public Result<Paged<RoleDTO>> getRoles(int page, int size) {

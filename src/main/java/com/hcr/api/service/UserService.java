@@ -6,7 +6,7 @@ import com.hcr.api.util.Result;
 import java.util.List;
 
 public interface UserService {
-    Result<UserDTO> getUserInfo(String userName, String password);
+    Result<String> login(String userName, String password);
 
     Result<UserDTO> getUserInfoById(int userId);
 
