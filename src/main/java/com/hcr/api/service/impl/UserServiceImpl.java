@@ -41,9 +41,9 @@ public class UserServiceImpl implements UserService {
         user2.setRealName("测试");
         user2.setRemark("测试人员");
         user2.setSex(1);
-        user1.setAvator("http://adminlte.la998.com/dist/img/user2-160x160.jpg");
-        user1.setIsTab(false);
-        users.add(user1);
+        user2.setAvator("http://adminlte.la998.com/dist/img/user2-160x160.jpg");
+        user2.setIsTab(false);
+        users.add(user2);
     }
 
     @Override

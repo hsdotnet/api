@@ -1,9 +1,11 @@
 package com.hcr.api.service.impl;
 
 import com.hcr.api.dto.DeptDTO;
+import com.hcr.api.dto.TreeDTO;
 import com.hcr.api.service.DeptService;
 import com.hcr.api.util.Result;
 import org.springframework.stereotype.Service;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,4 +64,37 @@ public class DeptServiceImpl implements DeptService {
     public Result<List<DeptDTO>> getDepts() {
         return Result.success(depts);
     }
+
+    @Override
+    public Result<List<TreeDTO>> getDeptTree() {
+        List<TreeDTO> trees = new ArrayList<TreeDTO>();
+
+        TreeDTO root = new TreeDTO();
+        root.setId(0);
+        root.setTitle("部门目录");
+        root.setExpand(true);
+        root.setChildren(getDeptTree(0));
+        trees.add(root);
+
+        return Result.success(trees);
+    }
+
+    private List<TreeDTO> getDeptTree(int parentId) {
+        List<TreeDTO> trees = new ArrayList<TreeDTO>();
+
+        depts.forEach(dept -> {
+            if (dept.getParentId() == parentId) {
+                TreeDTO tree = new TreeDTO();
+                tree.setId(dept.getDeptId());
+                tree.setTitle(dept.getDeptName());
+                tree.setExpand(true);
+                tree.setChildren(getDeptTree(dept.getDeptId()));
+                trees.add(tree);
+            }
+        });
+
+        return trees;
+    }
+
+    ;
 }

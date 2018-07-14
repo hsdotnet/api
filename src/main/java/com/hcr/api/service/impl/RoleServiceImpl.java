@@ -19,7 +19,7 @@ public class RoleServiceImpl implements RoleService {
 
         int takeCount = page == 3 ? 3 : size;
 
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= takeCount; i++) {
             RoleDTO role = new RoleDTO();
             role.setRoleId((page - 1) * size + i);
             role.setRoleName("角色名称：" + role.getRoleId());

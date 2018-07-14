@@ -1,6 +1,7 @@
 package com.hcr.api.controller;
 
 import com.hcr.api.dto.DeptDTO;
+import com.hcr.api.dto.TreeDTO;
 import com.hcr.api.service.DeptService;
 import com.hcr.api.util.Result;
 import io.swagger.annotations.Api;
@@ -32,5 +33,11 @@ public class DeptController {
     @GetMapping("/getDepts")
     public Result<List<DeptDTO>> getDepts() {
         return deptService.getDepts();
+    }
+
+    @ApiOperation(value = "获取部门树")
+    @GetMapping("/getDeptTree")
+    public Result<List<TreeDTO>> getDeptTree() {
+        return deptService.getDeptTree();
     }
 }
